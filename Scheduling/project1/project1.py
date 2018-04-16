@@ -1,22 +1,28 @@
-myprocesses = []
+myprocesses = [None]
 def mensagem():
     print(" ")
-    print("Atenção! o formato do processo deve ser:")
-    print(" tempos de chegada <espaço> duração <espaço>  prioridade")
-    print("exemplo")
-    print(" 3  20  3")
+    print("Digite o processo ou 0 para executar")
     print(" ")
 def main():
-    try:
-        mensagem()
-        states =  input(" digite um processo")
-        asd = tuple(states.split (' '))
-        print(len(states))
-        if(len(states) != 5): # 5 pois conta os 3 processos + espaços
-            raise Exception("Entrada Incorreta")
-        
-    except Exception as error:
-        print(error)
+	process = inputProcess()
+	while(process != 0):
+		myprocesses.append(process)
+		process = inputProcess()
+	print(myprocesses)
+
+
+def inputProcess():
+    mensagem()
+    process=input(" Entrada: ")
+    if(process == 0):
+        return 0
+    tp = tuple(process.split(' '))
+    if(len(tp) != 5):
+        print("Entrada incorreta")
+        return 0
+    
+    
+    return 0
 def fifo( process ):
     pass
 def sjf( process ):
